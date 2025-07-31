@@ -20,4 +20,4 @@ spec:
             - name: VUE_APP_BACKEND
               value: http://localhost:8080
           ports:
-            - containerPort: 80
+            - containerPort: 8000

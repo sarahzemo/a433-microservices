@@ -39,11 +39,6 @@ spec:
         - name: secret
           secret:
             secretName: mongo-secret
-  volumeClaimTemplates:
-    - metadata:
-        name: data
-      spec:
-        accessModes: ["ReadWriteOnce"]
-        resources:
-          requests:
-            storage: 1Gi
+        - name: data
+          persistentVolumeClaim:
+            claimName: mongo-pvc
