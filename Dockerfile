@@ -1,4 +1,13 @@
-FROM ubuntu:latest
-LABEL authors="LENOVO'"
+FROM node:18-alpine AS base
+WORKDIR /app
+COPY package*.json ./
 
-ENTRYPOINT ["top", "-b"]
+RUN npm ci
+
+COPY . .
+
+EXPOSE 3001
+
+ENV NODE_ENV=production
+
+CMD ["node", "index.js"]
